@@ -1,9 +1,9 @@
 <img src="https://raw.githubusercontent.com/exegeses/laravel-46358/main/imagenes/laravel-logo.png"> 
 
 # laravel-46358
-> Curso de 46358 |  
+> Curso de Laravel |  
 > Sábados 10hs (Arg) |  
-> Código: 42126 |  
+> Código: 46358 |  
 > sensei: Marcos Pinardi |  
 
 1. Definición
