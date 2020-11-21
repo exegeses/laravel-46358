@@ -17,6 +17,18 @@
             laboriosam magnam magni molestiae neque nobis quaerat, qui quisquam quod sequi sit sunt tenetur unde.
         </p>
 
+        @php
+            $nombre = 'marcos';
+            $num = 15;
+        @endphp
+
+        Tu nombre es: {{ $nombre }}
+
+        <ul>
+        @for( $i=1; $i<$num; $i++ )
+            <li> número {{ $i }} </li>
+        @endfor
+        </ul>
 
     </main>
 
