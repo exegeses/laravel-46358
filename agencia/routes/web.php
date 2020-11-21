@@ -25,3 +25,13 @@ Route::get('/prueba2', function() {
     return view('prueba2');
 });
 
+Route::get('/prueba3', function () {
+    $nombre = 'marcos';
+    $marcas = [
+                'Nike', 'Ford', 'Sony',
+                'Apple', 'Aston Martin',
+                'Audiotechnica', 'Marshall'
+            ];
+    // pasamos datos a la vista
+    return view('estructuras', [ 'nombre'=>$nombre ]);
+});
