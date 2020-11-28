@@ -33,5 +33,9 @@ Route::get('/prueba3', function () {
                 'Audiotechnica', 'Marshall'
             ];
     // pasamos datos a la vista
-    return view('estructuras', [ 'nombre'=>$nombre ]);
+    return view('estructuras',
+                    [
+                        'nombre'=>$nombre,
+                        'marcas'=>$marcas
+                    ]);
 });

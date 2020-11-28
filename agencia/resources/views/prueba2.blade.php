@@ -10,7 +10,7 @@
 </head>
 <body>
     <main class="container">
-        <h1>Vista de prueba</h1>
+        <h1>Vista de prueba - Blade</h1>
 
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi molestiae nemo numquam placeat veritatis
             voluptatum. Accusamus aperiam consectetur debitis, dolorem ducimus exercitationem explicabo, fuga illum

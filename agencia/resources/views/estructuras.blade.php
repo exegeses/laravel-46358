@@ -12,7 +12,7 @@
         <main class="container">
             <h1>Vista de prueba</h1>
 
-            @if ( $nombre == 'marco' )
+            @if ( $nombre == 'marcos' )
             <p class="alert alert-info">
                Bienvenido {{ $nombre }}
             </p>
@@ -24,9 +24,11 @@
 
 
             <ul class="list-group col-6 mx-auto">
+            @foreach ( $marcas as $marca )
                 <li class="list-group-item list-group-item-action">
-                    nombre de la marca
+                    {{ $marca }}
                 </li>
+            @endforeach
             </ul>
 
         </main>
