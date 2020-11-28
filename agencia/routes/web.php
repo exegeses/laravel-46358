@@ -39,3 +39,9 @@ Route::get('/prueba3', function () {
                         'marcas'=>$marcas
                     ]);
 });
+
+##################################
+### pantalla de inicio
+Route::get('/inicio', function () {
+    return view('inicio');
+});
