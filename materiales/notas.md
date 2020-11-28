@@ -26,3 +26,4 @@
      *  DB::table('nTable')->where(condicion)->update( [ ... ] );
      */
  
+ <img src="https://raw.githubusercontent.com/exegeses/laravel-46358/main/materiales/img/capas-rSQL%2BfQB.png">    
