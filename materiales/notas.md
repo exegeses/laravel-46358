@@ -16,4 +16,13 @@
 > Además, arriba de raw SQL, Laravel tiene otra capa de abstracción   
 > y esta se llama Fluent Query Builder 
 
+    /** ## Métodos Fluent Query Builder
+     *
+     *  DB::table('nTable')->get();
+     *  DB::table('nTable)->select('campo')->get();
+     *  DB::table('nTable')->where(condicion)->get();
+     *  DB::table('nTable')->select('campo')->where(condicion)->get();
+     *  DB::table('nTable)->insert( [ ... ] );
+     *  DB::table('nTable')->where(condicion)->update( [ ... ] );
+     */
  

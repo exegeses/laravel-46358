@@ -50,9 +50,23 @@ Route::get('/inicio', function () {
 ### Regiones
 Route::get('/adminRegiones', function () {
     //obtenemos datos de regiones
-    $regiones = DB::select('SELECT regID, regNombre FROM regiones');
+    //$regiones = DB::select('SELECT regID, regNombre FROM regiones');
+    $regiones = DB::table('regiones')->get();
     //pasar dato a la vista
     return view('adminRegiones', [ 'regiones'=>$regiones ]);
 });
+##################################
+### Destinos
+Route::get('/adminDestinos', function (){
+    $destinos = DB::select('SELECT
+                                    destID, destNombre, destPrecio,
+                                    d.regID, r.regNombre
+                                FROM  destinos as d
+                                INNER JOIN regiones as r
+                                ON d.regID = r.regID');
+    //$destinos = DB::table('destinos')->get();
+    return view('adminDestinos',[ 'destinos'=>$destinos ]);
+});
+
 
 
