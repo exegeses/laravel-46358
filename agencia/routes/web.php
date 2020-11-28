@@ -45,3 +45,14 @@ Route::get('/prueba3', function () {
 Route::get('/inicio', function () {
     return view('inicio');
 });
+
+##################################
+### Regiones
+Route::get('/adminRegiones', function () {
+    //obtenemos datos de regiones
+    $regiones = DB::select('SELECT regID, regNombre FROM regiones');
+    //pasar dato a la vista
+    return view('adminRegiones', [ 'regiones'=>$regiones ]);
+});
+
+
