@@ -15,7 +15,7 @@
 </head>
 <body>
 
-    <header class="bg-dark mb-3 shadow-md">
+    <header class="bg-dark mb-3 shadow">
 
         <nav class="container navbar navbar-expand-lg navbar-dark">
             <i class="fas fa-globe-americas fa-2x mr-2 text-white"></i>
