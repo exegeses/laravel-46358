@@ -4,9 +4,10 @@
 
         <h1>Alta de una región</h1>
 
-        <div class="bg-light border border-secondary shadow-md rounded p-4">
+        <div class="bg-light border-secondary col-8 mx-auto shadow rounded p-4">
 
-            <form action="" method="">
+            <form action="/agregarRegion" method="post">
+            @csrf
 
                 Región: <br>
                 <input type="text" name="regNombre" class="form-control">
