@@ -132,6 +132,9 @@ Route::get('/adminDestinos', function (){
                         ->get();
     return view('adminDestinos',[ 'destinos'=>$destinos ]);
 });
+Route::get('/agregarDestino', function () {
+    return view('agregarDestino');
+});
 
 
 
