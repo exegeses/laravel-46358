@@ -40,6 +40,10 @@ Route::get('/prueba3', function () {
                     ]);
 });
 
+##############################
+##  Route::metodo( 'peticion', acción );
+##############################
+
 ##################################
 ### pantalla de inicio
 Route::get('/inicio', function () {
@@ -55,6 +59,11 @@ Route::get('/adminRegiones', function () {
     //pasar dato a la vista
     return view('adminRegiones', [ 'regiones'=>$regiones ]);
 });
+Route::get('/agregarRegion', function () {
+    //mostrar el formulario
+    return view();
+});
+
 ##################################
 ### Destinos
 Route::get('/adminDestinos', function (){
