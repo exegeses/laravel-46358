@@ -115,7 +115,37 @@ Route::post('/modificarRegion', function() {
     return redirect('/adminRegiones')
         ->with('mensaje', 'Región: '.$regNombre.' modificada correctamente');
 });
+Route::get('/eliminarRegion/{regID}', function($regID) {
+    //obtenemos datos de región
+    $region = DB::table('regiones')
+                ->where('regID', $regID)
+                    ->first();
+    //retornamos vista con datos de la región
+    return view( 'eliminarRegion',
+                    [
+                        'region'=>$region
+                    ]
+            );
 
+});
+Route::post('/eliminarRegion', function() {
+    $regNombre = $_POST['regNombre'];
+    $regID = $_POST['regID'];
+
+    /*
+     * if (DB::table('destinos')->where('regID', $regID)->exists()) {
+     *      no se puede borrar porque hay registros
+     * }
+     * */
+
+    DB::table('regiones')
+            ->where('regID', $regID)
+            ->delete();
+    return redirect('adminRegiones')
+                ->with(
+                    'mensaje', 'Región: '.$regNombre.' eliminada correctamente.'
+                );
+});
 
 ##################################
 ### CRUD Destinos
