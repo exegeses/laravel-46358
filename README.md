@@ -82,3 +82,14 @@
 
     cd catalogo  
     composer update  
+
+> Cuando haya terminado de descargar y querramos inicialr el proyecto, va a parecer que esta todo funcionando bien, pero aun falta algo.  
+> Al intentar editar el archivo de configuración  ".env" nos damos cuenta que no está- sin ambargo, hay un archivo. ".env.example"  
+> Entonces vamos a generar nuetro archivo ".env" renombrando o compiando este archivo.  
+
+> Ahora si, el último paso es genear la key del proyecto.  
+> Esto se logra con el comando
+
+    php artisan key:generate
+
+> Ahora ya tenemos nuestro proyecto base listo
