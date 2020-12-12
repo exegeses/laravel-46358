@@ -51,7 +51,7 @@ Route::get('/inicio', function () {
 });
 
 ##################################
-### Regiones
+### CRUD Regiones
 Route::get('/adminRegiones', function () {
     //obtenemos datos de regiones
     //$regiones = DB::select('SELECT regID, regNombre FROM regiones');
@@ -116,8 +116,9 @@ Route::post('/modificarRegion', function() {
         ->with('mensaje', 'Región: '.$regNombre.' modificada correctamente');
 });
 
+
 ##################################
-### Destinos
+### CRUD Destinos
 Route::get('/adminDestinos', function (){
     /*
     $destinos = DB::select('SELECT
@@ -130,11 +131,82 @@ Route::get('/adminDestinos', function (){
     $destinos = DB::table('destinos as d')
                         ->join('regiones as r', 'd.regID', '=', 'r.regID')
                         ->get();
-    return view('adminDestinos',[ 'destinos'=>$destinos ]);
+    return view('adminDestinos', [ 'destinos'=>$destinos ] );
 });
 Route::get('/agregarDestino', function () {
-    return view('agregarDestino');
+    //obtenemos listado de regiones
+    $regiones = DB::table('regiones')->get();
+    //retornamos vista pasando datos
+    return view('agregarDestino',
+                    [ 'regiones'=>$regiones ]
+            );
 });
-
-
+Route::post('/agregarDestino', function () {
+    //capturar datos
+    $destNombre = $_POST['destNombre'];
+    $regID = $_POST['regID'];
+    $destPrecio = $_POST['destPrecio'];
+    $destAsientos = $_POST['destAsientos'];
+    $destDisponibles = $_POST['destDisponibles'];
+    //insertar datos en tabla
+    DB::table('destinos')
+                ->insert(
+                    [
+                        'destNombre'=>$destNombre,
+                        'regID'=>$regID,
+                        'destPrecio'=>$destPrecio,
+                        'destAsientos'=>$destAsientos,
+                        'destDisponibles'=>$destDisponibles
+                    ]
+                );
+    //redireccíon a panel con reporte
+    return redirect('/adminDestinos')
+                            ->with(
+                                [
+                                'mensaje'=>'Destino: '.$destNombre.' agregado correctamente'
+                                ]
+                            );
+});
+Route::get('/modificarDestino/{destID}', function ($destID) {
+    //obtenemos datos de un destino
+    $destino = DB::table('destinos as d')
+                    ->join('regiones as r', 'd.regID', '=', 'r.regID')
+                    ->where('d.destID', $destID)
+                    ->first();
+    //obtenemos listado de regiones
+    $regiones = DB::table('regiones')->get();
+    //retornar a vista de formulario con datos
+    return view('modificarDestino',
+                        [
+                            'destino'=>$destino,
+                            'regiones'=>$regiones
+                        ]
+            );
+});
+Route::post('/modificarDestino', function (){
+    //capturar datos
+    $destNombre = $_POST['destNombre'];
+    $regID = $_POST['regID'];
+    $destPrecio = $_POST['destPrecio'];
+    $destAsientos = $_POST['destAsientos'];
+    $destDisponibles = $_POST['destDisponibles'];
+    $destID = $_POST['destID'];
+    //modificamos
+    DB::table('destinos')
+                ->where('destID', $destID)
+                ->update(
+                    [
+                        'destNombre'=>$destNombre,
+                        'regID'=>$regID,
+                        'destPrecio'=>$destPrecio,
+                        'destAsientos'=>$destAsientos,
+                        'destDisponibles'=>$destDisponibles
+                    ]
+                );
+    //redireccíon a panel con reporte
+    return redirect('/adminDestinos')
+                ->with(
+                        'mensaje', 'Destino: '.$destNombre.' modificado correctamente'
+                );
+});
 
