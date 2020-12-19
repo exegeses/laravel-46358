@@ -31,3 +31,9 @@ Route::get('/adminMarcas', [ MarcaController::class, 'index' ]);
 use App\Http\Controllers\CategoriaController;
 
 Route::get('/adminCategorias', [ CategoriaController::class, 'index' ]);
+
+########################################
+### CRUD DE Productos
+use App\Http\Controllers\ProductoController;
+
+Route::get('/adminProductos', [ ProductoController::class, 'index' ]);
