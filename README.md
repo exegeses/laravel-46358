@@ -83,7 +83,7 @@
     cd catalogo  
     composer update  
 
-> Cuando haya terminado de descargar y querramos inicialr el proyecto, va a parecer que esta todo funcionando bien, pero aun falta algo.  
+> Cuando haya terminado de descargar y querramos iniciar el proyecto, va a parecer que esta todo funcionando bien, pero aun falta algo.  
 > Al intentar editar el archivo de configuración  ".env" nos damos cuenta que no está- sin ambargo, hay un archivo. ".env.example"  
 > Entonces vamos a generar nuetro archivo ".env" renombrando o compiando este archivo.  
 
