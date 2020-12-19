@@ -14,7 +14,10 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        //
+        $productos = Producto::with('relMarca', 'relCategoria')->get();
+
+        //retornamos vista pasando datos
+        return view('adminProductos', [ 'productos'=>$productos ]);
     }
 
     /**
