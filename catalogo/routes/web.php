@@ -17,4 +17,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+### Dashboard
 Route::view('/admin', 'admin');
+
+########################################
+### CRUD DE marcas
+use \App\Http\Controllers\MarcaController;
+
+Route::get('/adminMarcas', [ MarcaController::class, 'index' ]);
+
+########################################
+### CRUD DE Categorías
+
