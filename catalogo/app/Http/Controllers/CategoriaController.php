@@ -16,7 +16,8 @@ class CategoriaController extends Controller
     {
         //obtenemos listado de categorias
         $categorias = Categoria::all();
-
+        //retornamos vista pasando datos
+        return view('adminCategorias', [ 'categorias'=>$categorias ]);
     }
 
     /**
