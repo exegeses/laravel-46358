@@ -25,6 +25,8 @@ Route::view('/admin', 'admin');
 use \App\Http\Controllers\MarcaController;
 
 Route::get('/adminMarcas', [ MarcaController::class, 'index' ]);
+Route::get('/agregarMarca', [ MarcaController::class, 'create' ]);
+Route::post('/agregarMarca', [ MarcaController::class, 'store' ]);
 
 ########################################
 ### CRUD DE Categorías
