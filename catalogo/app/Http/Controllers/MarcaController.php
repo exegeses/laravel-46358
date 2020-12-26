@@ -40,10 +40,21 @@ class MarcaController extends Controller
     {
         //validación
         $request->validate(
-            [ 'mkNombre'=>'required|min:2|max:50' ]
+            [ 'mkNombre'=>'required|min:2|max:50' ],
+            [
+              'mkNombre.required'=>'El nombre de la marca es oblicatorio.',
+              'mkNombre.min'=>'El campo Nombre debe tener al menos 2 caractéres',
+              'mkNombre.max'=>'El campo Nombre debe tener 50 caractéres como máximo'
+            ]
         );
 
-        return 'pasó la validación';
+        //Instanciamos, asignamos atributos  y guardamos
+        $Marca = new Marca;
+        $Marca->mkNombre = $request->mkNombre;
+        $Marca->save();
+
+        return redirect('/adminMarcas')
+                    ->with('mensaje', 'Marca: '.$request->mkNombre.' agregada correctamente');
     }
 
     /**
