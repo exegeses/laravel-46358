@@ -30,6 +30,23 @@ class MarcaController extends Controller
         return view('agregarMarca');
     }
 
+
+    /**
+     * Método para validar nombre de una marca
+     * @param Request $request
+     */
+    private function validar(Request $request): void
+    {
+        $request->validate(
+            ['mkNombre' => 'required|min:2|max:50'],
+            [
+                'mkNombre.required' => 'El nombre de la marca es oblicatorio.',
+                'mkNombre.min' => 'El campo Nombre debe tener al menos 2 caractéres',
+                'mkNombre.max' => 'El campo Nombre debe tener 50 caractéres como máximo'
+            ]
+        );
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -39,14 +56,7 @@ class MarcaController extends Controller
     public function store(Request $request)
     {
         //validación
-        $request->validate(
-            [ 'mkNombre'=>'required|min:2|max:50' ],
-            [
-              'mkNombre.required'=>'El nombre de la marca es oblicatorio.',
-              'mkNombre.min'=>'El campo Nombre debe tener al menos 2 caractéres',
-              'mkNombre.max'=>'El campo Nombre debe tener 50 caractéres como máximo'
-            ]
-        );
+        $this->validar($request);
 
         //Instanciamos, asignamos atributos  y guardamos
         $Marca = new Marca;
@@ -76,7 +86,14 @@ class MarcaController extends Controller
      */
     public function edit($id)
     {
-        //
+        //obtenemos datos de una marca
+        $Marca = Marca::find($id);
+        //retornamos vista con los datos
+        return view('modificarMarca',
+                            [
+                                'marca'=>$Marca
+                            ]
+                );
     }
 
     /**
@@ -86,9 +103,19 @@ class MarcaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        //validacion
+        $this->validar($request);
+        //obtenemos datos de una marca
+        $Marca = Marca::find( $request->idMarca );
+        //asignamos cambios y guardamos
+        $Marca->mkNombre = $request->mkNombre;
+        $Marca->save();
+        //retornamos a panel con mensaje
+        return redirect('/adminMarcas')
+            ->with('mensaje', 'Marca: '.$request->mkNombre.' modificada correctamente');
+
     }
 
     /**
@@ -101,4 +128,5 @@ class MarcaController extends Controller
     {
         //
     }
+
 }
