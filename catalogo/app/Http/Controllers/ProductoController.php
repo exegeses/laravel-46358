@@ -79,6 +79,7 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         //validación
+        $this->validar($request);
 
     }
 
