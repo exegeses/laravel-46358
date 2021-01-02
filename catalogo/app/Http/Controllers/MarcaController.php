@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Marca;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 
 class MarcaController extends Controller
@@ -118,15 +119,39 @@ class MarcaController extends Controller
 
     }
 
+    public function confirm($id)
+    {
+        //saber si hay productos de ese marca
+        $productos = Producto::where('idMarca', $id)->get()->count();
+
+        //obtener datos de la marca para confirmar baja
+        $Marca = Marca::find($id);
+        //retornamos vista con datos
+        return view('eliminarMarca',
+            [
+                'productos'=>$productos,
+                'marca'=>$Marca
+            ]
+        );
+    }
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $idMarca = $request->idMarca;
+        $mkNombre = $request->mkNombre;
+        //eliminamos marca
+        Marca::destroy($idMarca);
+        //retornamos a panel con mensaje
+        return redirect('/adminMarcas')
+            ->with('mensaje', 'Marca: '.$mkNombre.' eliminada correctamente');
+
+
     }
 
 }
