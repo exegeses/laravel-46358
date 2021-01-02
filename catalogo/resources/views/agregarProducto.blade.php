@@ -28,7 +28,7 @@
                 <select name="idMarca" class="form-control" required>
                     <option value="">Seleccione una marca</option>
                 @foreach( $marcas as $marca )
-                    <option {{ (old('idMarca'==$marca->idMarca))?'selected':'' }} value="{{ $marca->idMarca }}">{{ $marca->mkNombre }}</option>
+                    <option {{ (old('idMarca')==$marca->idMarca)?'selected':'' }} value="{{ $marca->idMarca }}">{{ $marca->mkNombre }}</option>
                 @endforeach
                 </select>
                 <br>
