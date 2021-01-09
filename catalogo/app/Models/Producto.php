@@ -10,7 +10,7 @@ class Producto extends Model
     use HasFactory;
 
     public $timestamps = false;
-
+    protected $primaryKey = 'idProducto';
 
     ## relación a tabla marcas
     public function relMarca()
