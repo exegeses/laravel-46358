@@ -9,6 +9,9 @@ class Producto extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
+
     ## relación a tabla marcas
     public function relMarca()
     {
