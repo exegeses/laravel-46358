@@ -66,6 +66,8 @@
                 <br>
                 <input type="hidden" name="idProducto"
                        value="{{ $Producto->idProducto }}">
+                <input type="hidden" name="imgActual"
+                       value="{{ $Producto->prdImagen }}">
 
                 <button class="btn btn-dark mb-3">Modificar Producto</button>
                 <a href="/adminProductos" class="btn btn-outline-secondary mb-3">Volver al panel de Productos</a>
