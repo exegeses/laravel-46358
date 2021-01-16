@@ -27,7 +27,23 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        //
+        return view('agregarCategpria');
+    }
+
+    /**
+     * Método para validar nombre de una categoría
+     * @param Request $request
+     */
+    private function validar(Request $request): void
+    {
+        $request->validate(
+            ['catNombre' => 'required|min:2|max:50'],
+            [
+                'catNombre.required' => 'El nombre de la categoría es oblicatorio.',
+                'catNombre.min' => 'El campo Nombre debe tener al menos 2 caractéres',
+                'catNombre.max' => 'El campo Nombre debe tener 50 caractéres como máximo'
+            ]
+        );
     }
 
     /**
@@ -38,7 +54,16 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validación
+        $this->validar($request);
+        //Instanciamos, asignamos atributos  y guardamos
+        $Categoria = new Categoria;
+        $Categoria->catNombre = $request->catNombre;
+        $Categoria->save();
+
+        return redirect('/adminCategorias')
+            ->with('mensaje', 'Categoría: '.$request->catNombre.' agregada correctamente');
+
     }
 
     /**

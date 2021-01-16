@@ -1,5 +1,5 @@
 
-    <footer class="bg-dark fixed-bottom text-light text-center p-4">
+    <footer class="bg-dark fixed-bottom text-light text-center">
         (ɔ) 2020 - Pandemic Warriors -
     </footer>
 

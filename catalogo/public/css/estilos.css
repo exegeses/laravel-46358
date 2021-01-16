@@ -3,6 +3,9 @@ body{
     font-weight: 500;
 }
 
+    header{
+        padding: 14px 0px;
+    }
         .nav-link{
             color: #d8d8d8 !important;
             margin: 0px 10px;
@@ -27,3 +30,7 @@ body{
             vertical-align: middle !important;
             font-weight: 700;
         }
+
+    footer{
+        padding: 34px 0px !important;
+    }
