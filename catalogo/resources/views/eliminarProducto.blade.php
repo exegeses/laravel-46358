@@ -11,6 +11,8 @@
             <div class="col text-danger align-self-center">
 
                 <form action="/eliminarProducto" method="post">
+                @csrf
+                @method('delete')
 
                     <h2>{{ $Producto->prdNombre }}</h2>
                     Categoría: {{ $Producto->relCategoria->catNombre }}
@@ -21,10 +23,30 @@
                     <br>
                     Precio: ${{ $Producto->prdPrecio }}
 
+                    <input type="hidden" name="idProducto"
+                           value="{{ $Producto->idProducto }}">
+                    <input type="hidden" name="prdNombre"
+                           value="{{ $Producto->prdNombre }}">
+
+                    <button class="btn btn-danger btn-block my-3">
+                        Confirmar baja
+                    </button>
+                    <a href="/adminProductos" class="btn btn-secondary btn-block">
+                        volver a panel
+                    </a>
+
                 </form>
 
             </div>
         </div>
+
+        <script>
+            Swal.fire(
+                'Advertencia',
+                'Si pulsa el botón "Confirmar baja", se eliminará el producto',
+                'warning'
+            )
+        </script>
 
     @endsection
 

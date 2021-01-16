@@ -85,7 +85,7 @@ class ProductoController extends Controller
             //renombrar
                 #nombre original
                 //$request->file('prdImagen')->getClientOriginalName();
-                #time().'.'.extencion
+                #time().'.'.extension
                 $prdImagen = time().'.'.$request->file('prdImagen')->clientExtension();
             //subir archivo en directorio 'productos'
             $request->file('prdImagen')
@@ -206,8 +206,22 @@ class ProductoController extends Controller
      * @param  \App\Models\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Producto $producto)
+    public function destroy(Request $request)
     {
-        //
+        $idProducto = $request->idProducto;
+        $prdNombre = $request->prdNombre;
+        Producto::destroy($idProducto);
+        /*
+         * si quisieramos eliminar archivo
+         * 1º obtener datos de Producto
+         * 2º chequear SI NO ES == 'noDisponible.jpg'
+         *      eliminar usando:
+         *      Storage::delete( public_path('productos/'.Producto->prdImagen) );
+         * */
+
+        //redirección con mensaje de ok
+        return redirect('/adminProductos')
+            ->with('mensaje', 'Producto: '.$prdNombre.' eliminado correctamente.');
+
     }
 }
