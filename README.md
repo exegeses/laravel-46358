@@ -46,7 +46,7 @@
  > Ejemplo para instalar laravel 6x    
  `composer create-project laravel/laravel proyecto "6.*"`
 
-> Ejemplo para instalar laravel (versión más actual según tu versiónde PHP)    
+> Ejemplo para instalar laravel (versión más actual según tu versión de PHP)    
  `composer create-project laravel/laravel proyecto `   
 
 ## Iniciando el server
