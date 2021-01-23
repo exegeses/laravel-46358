@@ -4,7 +4,7 @@
     </div>
 
     <div class="mt-8 text-2xl">
-        Bienvenido a tu aplicación usando Jetstream!
+        Bienvenido {{ auth()->user()->name }} a tu aplicación usando Jetstream!
     </div>
 
     <div class="mt-6 text-gray-500">
