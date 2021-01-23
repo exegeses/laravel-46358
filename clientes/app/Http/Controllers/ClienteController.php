@@ -14,7 +14,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        //
+        //obtener listado de clientes
+        return view('adminClientes');
     }
 
     /**

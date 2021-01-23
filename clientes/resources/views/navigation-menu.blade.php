@@ -16,6 +16,22 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
                 </div>
+                <!-- mi barra de navegación -->
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="/adminClientes" :active="request()->routeIs('adminClientes')">
+                        Clientes
+                    </x-jet-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="/adminMarcas">
+                        Marcas
+                    </x-jet-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="/adminProductos">
+                        Productos
+                    </x-jet-nav-link>
+                </div>
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
